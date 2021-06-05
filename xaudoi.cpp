@@ -13,7 +13,13 @@ int Doi(char s[]){
 }
 int main(){
     char s[100];
+    int t;
+    scanf("%d", &t);
+    fflush(stdin);
+    while(t--){
     gets(s);
     Doi(s);
+    printf("\n");
+    }
     return 0;
 }
