@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+char s[502], x[300];
+void Nhap(char s[502]){
+    gets(s);
+    int len=strlen(s);
+    for(int i=0;i<len;i++) x[i]=s[i];
+}
+int Kiemtra1(char s[502]){
+    int len=strlen(s);
+    int t=0;
+    if(s[0]=='8' && s[len-1]=='8'){
+        for(int i=0;i<len;i++){
+            int n=(int)s[i]-48;
+            t+=n;
+        }
+        if(t%10==0) return 1;
+        else return 0;
+        }
+    else return 0;
+}
+void Dao(char x[300]){
+    int len=strlen(x);
+    for(int i=0;i<len;i++){
+        char tmp=x[i];
+        x[i]=x[len-i-1];
+        x[len-i-1]=tmp;
+    }
+}
+int Kiemtra(char s[502]){
+    int len=strlen(s);
+    Dao(x);
+    if(Kiemtra1(s)==1){
+        for(int i=0;i<len;i++){
+            if(x[i]!=s[len-i-1]) return 0;
+        }
+        return 1;
+    }
+    else return 0;
+}
+int main(){
+    int t;
+    scanf("%d", &t);
+    fflush(stdin);
+    while(t--){
+    do
+        Nhap(s);
+    while(strlen(s)==0);
+    if(Kiemtra(s)==1) printf("YES\n");
+    else printf("NO\n");
+}
+}
