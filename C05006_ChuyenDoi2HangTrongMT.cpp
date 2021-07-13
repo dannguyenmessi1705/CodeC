@@ -1,23 +1,28 @@
-#include<stdio.h>
-main(){
-	int m, n , a ,b;
-	scanf("%d%d", &m, &n);
-	int s[m][n], p[n];
-	for(int i = 0; i < m; i++){
-		for(int j = 0; j < n; j++){
-			scanf("%d", &s[i][j]);
-		}
-	}
-	scanf("%d%d", &a, &b);
-	for(int i = 0; i < n; i++){
-		p[i] = s[a-1][i];
-		s[a-1][i] = s[b-1][i];
-		s[b-1][i] = p[i];
-	}
-	for(int i = 0; i < m; i++){
-		for(int j = 0; j < n; j++){
-			printf("%d ", s[i][j]);
-		}
-		printf("\n");
-	}
+#include <stdio.h>
+void Nhap(int a[50][50], int m, int n){
+    for(int i=1;i<=m;i++){
+        for(int j=1;j<=n;j++){
+            scanf("%d", &a[i][j]);
+        }
+    }
+    int x, y, tmp[50][50];
+    scanf("%d%d", &x, &y);
+    for(int i=1;i<=n;i++){
+        tmp[x][i]=a[x][i];
+        a[x][i]=a[y][i];
+        a[y][i]=tmp[x][i];
+    }
+
+}
+void Xuat(int a[50][50], int m, int n){
+    for(int i=1;i<=m;i++){
+        for(int j=1;j<=n;j++) printf("%d ", a[i][j]);
+        printf("\n");
+    }
+}
+int main(){
+    int m, n, a[50][50], x, y;
+    scanf("%d%d", &m, &n);
+    Nhap(a,m,n);
+    Xuat(a,m,n);
 }
