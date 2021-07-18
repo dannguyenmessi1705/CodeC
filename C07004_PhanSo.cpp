@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <math.h>
  
 int UCLN(int a, int b)

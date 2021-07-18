@@ -5,23 +5,20 @@ void Nhap(int a[], int n){
         scanf("%d", &a[i]);
     }
 }
-bool Doi(int a[], int n){
+int Doi(int a[], int n){
     for(int i=0;i<n;i++){
         if(a[i] != a[n-1-i]){
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 int main(){
     int a[10];
     int n, k;
     scanf("%d", &k);
     while(k--){
-        do {
-            scanf("%d", &n);
-    }
-    while(n<0 || n>10);
+    scanf("%d", &n);
     Nhap(a, n);
     if (Doi(a, n)) printf("YES\n");
     else printf("NO\n");
