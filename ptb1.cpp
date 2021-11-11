@@ -1,11 +1,12 @@
-#include <stdio.h>
-float x1(int a, float b){
-    return -b / a;
-}
+#include <iostream>
+using namespace std;
 int main(){
     int a, b;
-    scanf("%d%d", &a, &b);
-    if (a == 0 & b != 0) printf("Vo nghiem");
-    else if (a==0 && b==0) printf("Vo so nghiem");
-    else printf("%.2f", x1(a, b));
+    cin>>a>>b;
+    if (a == 0 & b != 0) cout<<("VN");
+    else if (a==0 && b==0) cout<<("VSN");
+    else{
+    	if(b%a==0) cout<<"x = "<<-b/a;
+    	else cout<<"x = "<<(float)(-b)/a;
+	}
 }
